@@ -1,0 +1,32 @@
+﻿@model IEnumerable<OnlineDoctorsAppointmentBooking.Models.Doctor>
+@{
+    //ViewBag.Title = "DisplayDoctors";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<h2 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:30px;text-align:center">Doctors List</h2>
+
+<center>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6">
+                <div class="card border-primary" style="width:100%">
+                    <div class="card-body" style="font-size:20px">
+                        <h2 class="card-text" style="color:blue">@item.DoctorFirstName @item.DoctorLastName</h2>
+                        <p class="card-text">Qualification : @item.Qualification</p>
+                        <p class="card-text">Specialization : @item.Specialization</p>
+                        <p class="card-text">Experience : @item.Experience</p>
+                        <h3 class="card-text">Contact Details</h3>
+                        <p class="card-text">Email ID : @item.EmailId</p>
+                        <p class="card-text">Phone Number : @item.MobileNumber</p>
+                        <p class="card-text">@Html.ActionLink("View Time Slots", "TimeSlots", "Employee", new { id = item.Id }, new { @class = "btn btn-primary" })</p>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</center>
+
+

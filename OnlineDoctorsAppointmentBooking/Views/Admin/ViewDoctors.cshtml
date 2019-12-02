@@ -1,0 +1,83 @@
+﻿@model IEnumerable<OnlineDoctorsAppointmentBooking.Models.Doctor>
+
+@{
+    //ViewBag.Title = "ViewDoctors";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:blue">Doctors List</h2>
+
+<table class="table table-primary">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qualification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Experience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAvailable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specialization)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qualification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Experience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailId)
+            </td>
+            @if (item.IsAvailable == true)
+            {
+                <td>
+                    <text>YES</text>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <text>NO</text>
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialization)
+            </td>
+        </tr>
+    }
+
+</table>

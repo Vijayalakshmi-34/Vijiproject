@@ -1,0 +1,23 @@
+﻿@*@model OnlineBookingDoctorsAppointment.Models.Employee*@
+@{
+    //ViewBag.Title = "MyDetails";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<div class="container">
+    <h4 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:50px">Hello @ViewBag.employee.EmployeeFirstName @ViewBag.employee.EmployeeLastName !!!</h4>
+    @Html.ActionLink("Edit", "Update", "Employee", new { id = ViewBag.employee.Id }, new { @class = "btn btn-info btn-lg glyphicon glyphicon-pencil" })
+
+    <div class="jumbotron">
+        <ul class="list-group">
+            <li class="list-group-item">Employee ID : @ViewBag.employee.SapId</li>
+            <li class="list-group-item">City : @ViewBag.employee.Location</li>
+            <li class="list-group-item">Email ID : @ViewBag.employee.EmailId</li>
+            <li class="list-group-item">Mobile Number : @ViewBag.employee.MobileNumber</li>
+            <li class="list-group-item">Date Of Birth : @ViewBag.employee.DateOfBirth</li>
+            <li class="list-group-item">Gender : @ViewBag.employee.Gender</li>
+            <li class="list-group-item">Blood Group : @ViewBag.employee.BloodGroup</li>
+        </ul>
+    </div>
+</div>
+

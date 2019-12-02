@@ -1,0 +1,49 @@
+﻿@model OnlineDoctorsAppointmentBooking.ViewModels.SlotBookingViewModel
+@{
+    //ViewBag.Title = "TimeSlots";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<h3 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:30px;text-align:center">Book your appointment</h3>
+
+@using (Html.BeginForm())
+{
+    <center>
+        <h2 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:30px">Select Date</h2>
+        @Html.LabelFor(s => s.Date, new { @style = "font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:15px" })
+        @Html.TextBoxFor(s => s.Date, null, new { @class = "date-picker" })
+        @*<input type="text" class="date-picker" />*@
+        <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+        @section scripts{
+
+            <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+            <script>
+                $(function () {
+                    $(".date-picker").datepicker({
+                        dateFormat: "dd/mm/yy",
+                        minDate: 0,
+                        maxDate: "+3M"
+                    });
+                });
+            </script>
+        }
+
+        <br />
+        <h2 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:30px">Select the slot</h2>
+        <br />
+    </center>
+    <center>
+        <div class="row">
+            @foreach (var item in Model.SlotTime)
+            {
+                <div class="col-md-3">
+                    <input type="submit" class="btn btn-primary" value="@item" style="margin-top:10px;margin-bottom:10px" />
+                </div>
+            }
+        </div>
+        <br />
+        <input type="submit" value="Book" class="btn btn-primary" />
+    </center>
+}
+
+

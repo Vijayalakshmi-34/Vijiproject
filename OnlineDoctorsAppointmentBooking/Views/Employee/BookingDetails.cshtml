@@ -1,0 +1,57 @@
+﻿@model IEnumerable<OnlineDoctorsAppointmentBooking.Models.AppointmentDetails>
+
+@{
+    //ViewBag.Title = "BookingDetails";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<h2 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:30px;text-align:center">Your Booking Details</h2>
+
+<table class="table table-primary">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusOfBooking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Doctor.DoctorFirstName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.EmployeeFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusOfBooking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.DoctorFirstName)
+            </td>
+        </tr>
+    }
+
+</table>

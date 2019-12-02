@@ -1,0 +1,48 @@
+﻿@model OnlineDoctorsAppointmentBooking.Models.Doctor
+@{
+    //ViewBag.Title = "BookAppointment";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<center>
+    <h3 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:30px">Search your doctor</h3>
+    <div class="row">
+        <div class="col-md-6">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Location)
+                    @Html.DropDownListFor(c => c.Location, ViewBag.Location as SelectList, new { @class = "form-control", autocomplete = "off", required = true })
+                    @Html.ValidationMessageFor(c => c.Location)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Specialization)
+
+                    @Html.DropDownListFor(c => c.Specialization, ViewBag.Specialization as SelectList, new { @class = "form-control", autocomplete = "off", required = true })
+                    @Html.ValidationMessageFor(c => c.Specialization)
+                </div>
+                <br />
+                <div>
+                    <input type="submit" value="Search" class="btn btn-primary" />
+                </div>
+            }
+        </div>
+        <div class="col-md-4">
+            @using (Html.BeginForm("SearchByDoctorName", "Employee", FormMethod.Post, new { @class = "for-inline" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label>Enter Doctor Name</label>
+                    <input class="form-control" name="search" type="text" placeholder="Enter Doctor Name" />
+                </div>
+                <div>
+                    <input class="btn btn-primary" type="submit" value="Search" />
+                </div>
+            }
+        </div>
+    </div>
+
+</center>
+
+
